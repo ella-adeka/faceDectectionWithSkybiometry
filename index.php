@@ -93,16 +93,16 @@
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         if (isset($_FILES['image'])) {
             if ($_FILES['image']['type']=='image/jpeg' || $_FILES['image']['type']=='image/png' || $_FILES['image']['type']=='image/gif' ) {
-            $file_path = "/Applications/xampp/htdocs/myworks/faceDetectionWithSkybiometry/images/".$_FILES['image']['name'];
-            move_uploaded_file($_FILES['image']['tmp_name'],$file_path);
-            
-            $file = $_FILES['image']['name'];
-            resizeImage($file);
-            unlink("./images/".$file);
-            
-            // echo "<img src='./new_images/$file' alt='the_image'></img>";
-            echo "<img src='./new_images/$file' alt='the_image' width='150'  object-fit='cover'></img>";
-            
+                $file_path = "/Applications/xampp/htdocs/myworks/faceDetectionWithSkybiometry/images/".$_FILES['image']['name'];
+                move_uploaded_file($_FILES['image']['tmp_name'],$file_path);
+                
+                $file = $_FILES['image']['name'];
+                resizeImage($file);
+                unlink("./images/".$file);
+                
+                // echo "<img src='./new_images/$file' alt='the_image'></img>";
+                echo "<img src='./new_images/$file' alt='the_image' width='150'  object-fit='cover'></img>";
+            }
         } else{
             echo "No image chosen";
         }
